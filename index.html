@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Techno Coffer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Optional: Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading header:', error));
+  </script>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Welcome to TechnoCoffer</h2>
+      <p>Your one-stop solution for innovative web tools and AI-powered applications.</p>
+      <a href="spin.html" class="btn">Spin the wheel</a>
+    </div>
+  </section>
+
+  <!-- Main Content Section (Placeholder) -->
+  <section class="content" id="features">
+    <div class="container">
+      <h3>Our Features</h3>
+      <div class="features-grid">
+        <div class="feature">
+          <h4>Interactive Tools</h4>
+          <p>Spin the wheel, calculate loans, generate captions, and more with our intuitive apps.</p>
+        </div>
+        <div class="feature">
+          <h4>AI Integration</h4>
+          <p>Harness advanced AI to generate insights and automate tasks effortlessly.</p>
+        </div>
+        <div class="feature">
+          <h4>Responsive Design</h4>
+          <p>Our tools are designed to work seamlessly across all devices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <p>&copy; 2025 TechnoCoffer. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

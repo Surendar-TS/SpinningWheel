@@ -1,0 +1,214 @@
+/* Spinning Wheel Styles */
+#wheelContainer p {
+  display: none; /* Hide placeholder text */
+}
+
+#nameError {
+  position: relative;
+  z-index: 200; /* Higher than arrow's z-index (100) */
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ff4444;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.wheel-app {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 800px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-section {
+  width: 300px;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 100px; /* Adjust based on header height */
+}
+
+.input-section textarea {
+  height: 400px; /* Match wheel height */
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #007acc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 0;
+  resize: vertical;
+}
+
+.wheel-wrapper {
+  flex: 1;
+  max-width: 600px;
+  overflow: visible;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto 2rem;
+  z-index: 1; /* Add this */
+}
+
+#wheelCanvas {
+  z-index: 50; /* Add this */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Remove CSS transition to let JS animate the transform */
+  /* transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1); */
+}
+
+.arrow {
+  position: absolute;
+  top: -30px; /* Increased space above wheel */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 35px solid #007acc; /* Using border-top for arrow shape */
+  z-index: 150;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.spin-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #007acc;
+  color: white;
+  border: 4px solid white;
+  cursor: pointer;
+  z-index: 100; /* Above wheel, below arrow */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.spin-btn:hover {
+  background: #005d99;
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.spin-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+
+/* Error styling */
+.input-section textarea.error {
+  border-color: #ff4444;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Confetti animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.confetti {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(-100%) rotate(0deg);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+  }
+}
+
+
+
+.result-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /*animation: slideIn 0.3s ease-out;*/
+  z-index: 1000;
+}
+
+.result-content button {
+  margin-top: 1rem;
+  background: #007acc;
+  color: white;
+}
+
+
+@keyframes slideIn {
+  from { transform: translate(-50%, -60%); opacity: 0; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+
+.loading {
+  color: #666;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.gif-preview {
+  max-width: 300px;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 2px solid #007acc;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
